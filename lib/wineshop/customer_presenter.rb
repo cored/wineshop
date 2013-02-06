@@ -5,7 +5,7 @@ module Wineshop
     end
 
     def header
-      "Statement for #{@customer.name}\n"
+      "Statement for #{@customer}\n"
     end
 
     def footer

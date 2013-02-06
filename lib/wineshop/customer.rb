@@ -1,8 +1,5 @@
 module Wineshop
   class Customer
-    attr_reader :name 
-    attr_reader :shipping_address
-
     def initialize(name, shipping_address)
       @name = name
       @shipping_address = shipping_address
@@ -32,6 +29,10 @@ module Wineshop
 
     def purchases_total_amount
       @purchases.total_amount
+    end
+
+    def to_s
+      "#{@name}"
     end
   end
 end
