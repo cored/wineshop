@@ -33,14 +33,12 @@ module Wineshop
     def statement 
       result = header
       @purchases.items.each do |purchase|
-        this_amount = 0
-        this_amount += purchase.determine_amount
 
         # show figures for this wine
-        result += "\t" + purchase.item.name+ "\t" + this_amount.to_s + "\n"
+        result += item_figures(purchase) 
 
         unless purchase.added_to_bill
-          @balance += this_amount
+          @balance += purchase.determine_amount
           purchase.added_to_bill = true
         end
       end
@@ -50,6 +48,10 @@ module Wineshop
     end
 
     private
+    def item_figures(purchase)
+      "\t#{purchase.item.name}\t#{purchase.determine_amount}\n"
+    end
+
     def purchases_total_amount
       @purchases.total_amount
     end
