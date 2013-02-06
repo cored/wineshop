@@ -11,7 +11,6 @@ module Wineshop
     EconomyPrice = OpenStruct.new(:price => 3)
 
     attr_reader :wine_name
-    attr_accessor :wine_price_code
 
     def initialize(name, price = EconomyPrice)
       @wine_name, @price = name, price
