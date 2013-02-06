@@ -9,7 +9,7 @@ module Wineshop
     end
 
     def footer
-      "Total Amount is #{@customer.purchases_total_amount.to_s}\nBalance Owing is #{@customer.calculate_balance}\n"
+      "Total Amount is #{@customer.purchases_amount.to_s}\nBalance Owing is #{@customer.calculate_balance}\n"
     end
 
     def body

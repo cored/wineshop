@@ -27,7 +27,7 @@ module Wineshop
       @purchases.total_balance  
     end
 
-    def purchases_total_amount
+    def purchases_amount
       @purchases.total_amount
     end
 
