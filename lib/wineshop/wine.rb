@@ -2,14 +2,13 @@ require 'ostruct'
 
 module Wineshop
   class Wine
-    ECONOMY = 0
-    POPULAR = 1
     PREMIUM = 2
     SUPER_PREMIUM = 3
     ULTRA_PREMIUM = 4
     LUXURY = 5
     EconomyPrice = OpenStruct.new(:price => 3)
     PopularPrice = OpenStruct.new(:price => 7)
+    PremiumPrice = OpenStruct.new(:price => 10)
 
     attr_reader :wine_name
 
