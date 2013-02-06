@@ -1,24 +1,11 @@
 # Wineshop
 
-TODO: Write a gem description
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'wineshop'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install wineshop
+This is just refactoring for the masses
 
 ## Usage
 
-TODO: Write usage instructions here
+Check the history for the thought process of doing a refactoring from start to
+finish; obviusly I haven't finish this it always can get more improvements.
 
 ## Contributing
 
