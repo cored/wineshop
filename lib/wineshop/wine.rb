@@ -10,6 +10,7 @@ module Wineshop
     PopularPrice = OpenStruct.new(:price => 7)
     PremiumPrice = OpenStruct.new(:price => 10)
     SuperPremiumPrice = OpenStruct.new(:price => 12)
+    UltraPremiumPrice = OpenStruct.new(:price => 14)
 
     attr_reader :wine_name
 

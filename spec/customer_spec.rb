@@ -5,7 +5,7 @@ describe Wineshop::Customer do
   let(:popular_code) { Wineshop::Wine::PopularPrice }
   let(:premium_code) { Wineshop::Wine::PremiumPrice }
   let(:super_premium_code) { Wineshop::Wine::SuperPremiumPrice }
-  let(:ultra_premium_code) { 4 }
+  let(:ultra_premium_code) { Wineshop::Wine::UltraPremiumPrice }
   let(:luxury_code) { 5 }
   let(:customer) { Wineshop::Customer.new("Rafael", "My Place") }
   
@@ -50,7 +50,7 @@ describe Wineshop::Customer do
       it { should == "Statement for Rafael\n\tBorg\t12\nTotal Amount is 12\nBalance Owing is 12\n" }
     end
 
-    pending "When price code is ultra premium" do 
+    context "When price code is ultra premium" do 
       let(:ultra_premium_wine) { Wineshop::Wine.new("Borg", ultra_premium_code) }
       let(:purchase) { Wineshop::Purchase.new(ultra_premium_wine) }
       before(:each) do 
