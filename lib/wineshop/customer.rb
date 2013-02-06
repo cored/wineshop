@@ -1,4 +1,15 @@
 module Wineshop
+  class Purchases
+    attr_accessor :items 
+    def initialize
+      @items = []
+      @total_amount = 0
+    end
+
+    def total_amount
+      @items.inject(0) { |sum, item| sum += item.determine_amount }
+    end
+  end
   class Customer
     attr_reader :name
     attr_reader :shipping_address
@@ -7,11 +18,11 @@ module Wineshop
       @name = name
       @shipping_address = shipping_address
       @balance = 0
+      @purchases = Purchases.new
     end
 
     def add_purchase(arg)
-      @purchases = [] unless @purchases
-      @purchases << arg
+      @purchases.items << arg
     end
 
     def pay(arg)
@@ -21,14 +32,12 @@ module Wineshop
     def statement 
       total_amount = 0
       result = "Statement for #{@name}\n"
-      @purchases.each do |purchase|
+      @purchases.items.each do |purchase|
         this_amount = 0
-
-        # determine amounts for each wine
-        this_amount += purchase.determine_wine_amount
+        this_amount += purchase.determine_amount
 
         # show figures for this wine
-        result += "\t" + purchase.wine.wine_name + "\t" + this_amount.to_s + "\n"
+        result += "\t" + purchase.item.name+ "\t" + this_amount.to_s + "\n"
         total_amount += this_amount
 
         unless purchase.added_to_bill

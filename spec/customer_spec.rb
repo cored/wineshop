@@ -69,6 +69,7 @@ describe Wineshop::Customer do
       subject { customer.statement }
       it { should == "Statement for Rafael\n\tBorg\t17\nTotal Amount is 17\nBalance Owing is 17\n" }
     end
+
   end
 
 end

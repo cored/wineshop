@@ -1,15 +1,15 @@
 module Wineshop
   class Purchase
-    attr_reader :wine 
+    attr_reader :item
     attr_accessor :added_to_bill
 
-    def initialize(wine)
-      @wine = wine
+    def initialize(item)
+      @item = item
       @added_to_bill = false
     end
 
-    def determine_wine_amount
-      @wine.calculate_amount
+    def determine_amount
+      @item.calculate_amount
     end
 
   end
