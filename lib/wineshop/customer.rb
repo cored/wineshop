@@ -10,6 +10,7 @@ module Wineshop
       @items.inject(0) { |sum, item| sum += item.determine_amount }
     end
   end
+
   class Customer
     attr_reader :name
     attr_reader :shipping_address
@@ -30,15 +31,13 @@ module Wineshop
     end
 
     def statement 
-      total_amount = 0
-      result = "Statement for #{@name}\n"
+      result = header
       @purchases.items.each do |purchase|
         this_amount = 0
         this_amount += purchase.determine_amount
 
         # show figures for this wine
         result += "\t" + purchase.item.name+ "\t" + this_amount.to_s + "\n"
-        total_amount += this_amount
 
         unless purchase.added_to_bill
           @balance += this_amount
@@ -46,10 +45,21 @@ module Wineshop
         end
       end
 
-      # add footer lines
-      result += "Total Amount is #{total_amount.to_s}\n"
-      result += "Balance Owing is #{@balance.to_s}\n"
+      result += footer
       result
+    end
+
+    private
+    def purchases_total_amount
+      @purchases.total_amount
+    end
+
+    def header
+      "Statement for #{@name}\n"
+    end
+
+    def footer
+      "Total Amount is #{purchases_total_amount.to_s}\nBalance Owing is #{@balance.to_s}\n"
     end
 
   end
