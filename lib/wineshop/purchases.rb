@@ -3,7 +3,6 @@ module Wineshop
     attr_accessor :items 
     def initialize
       @items = []
-      @total_amount = 0
     end
 
     def total_amount
