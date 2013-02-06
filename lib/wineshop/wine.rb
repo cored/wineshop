@@ -9,14 +9,16 @@ module Wineshop
     UltraPremiumPrice = OpenStruct.new(:price => 14)
     LuxuryPrice = OpenStruct.new(:price => 17)
 
-    attr_reader :name
-
     def initialize(name, price = EconomyPrice)
       @name, @price = name, price
     end
 
     def calculate_amount
       @price.price
+    end
+
+    def to_s
+      "#{@name}"
     end
   end
 

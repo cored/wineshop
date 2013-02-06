@@ -15,7 +15,7 @@ module Wineshop
     def body
       body = ""
       @customer.purchases_items.each do |purchase|
-        body += "\t#{purchase.item.name}\t#{purchase.determine_amount}\n"
+        body += "\t#{purchase.item}\t#{purchase.determine_amount}\n"
       end
       body
     end
