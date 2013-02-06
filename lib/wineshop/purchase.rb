@@ -1,16 +1,4 @@
 module Wineshop
-  class Purchases
-    attr_accessor :items 
-    def initialize
-      @items = []
-      @total_amount = 0
-    end
-
-    def total_amount
-      @items.inject(0) { |sum, item| sum += item.determine_amount }
-    end
-  end
-
   class Purchase
     attr_reader :item
     attr_accessor :added_to_bill
@@ -28,7 +16,7 @@ module Wineshop
       balance = 0
       unless added_to_bill
         added_to_bill = true
-        balance += determine_amount
+        balance = determine_amount
       end
       balance
     end

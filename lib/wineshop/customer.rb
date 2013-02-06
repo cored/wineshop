@@ -1,30 +1,4 @@
 module Wineshop
-  class CustomerPresenter
-    def initialize(customer)
-      @customer = customer
-    end
-
-    def header
-      "Statement for #{@customer.name}\n"
-    end
-
-    def footer
-      "Total Amount is #{@customer.purchases_total_amount.to_s}\nBalance Owing is #{@customer.calculate_balance}\n"
-    end
-
-    def body
-      body = ""
-      @customer.purchases_items.each do |purchase|
-        body += "\t#{purchase.item.name}\t#{purchase.determine_amount}\n"
-      end
-      body
-    end
-
-    def to_s
-      "#{header}#{body}#{footer}"
-    end
-  end
-
   class Customer
     attr_reader :name 
     attr_reader :shipping_address
@@ -37,7 +11,7 @@ module Wineshop
     end
 
     def add_purchase(arg)
-      @purchases.items << arg
+      @purchases.add arg
     end
 
     def pay(arg)
@@ -53,7 +27,7 @@ module Wineshop
     end
 
     def calculate_balance
-      @purchases.items.inject(0) { |balance, item| balance += item.calculate_balance }
+      @purchases.total_balance  
     end
 
     def purchases_total_amount
