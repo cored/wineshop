@@ -25,7 +25,7 @@ module Wineshop
         this_amount = 0
 
         # determine amounts for each wine
-        this_amount += purchase.wine.calculate_amount
+        this_amount += purchase.determine_wine_amount
 
         # show figures for this wine
         result += "\t" + purchase.wine.wine_name + "\t" + this_amount.to_s + "\n"

@@ -8,5 +8,9 @@ module Wineshop
       @added_to_bill = false
     end
 
+    def determine_wine_amount
+      @wine.calculate_amount
+    end
+
   end
 end
