@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Wineshop::Customer do 
-  let(:economy_code) { 0 }
+  let(:economy_code) { Wineshop::Wine::EconomyPrice}
   let(:popular_code) { 1 }
   let(:premium_code) { 2 }
   let(:super_premium_code) { 3 }

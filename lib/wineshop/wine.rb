@@ -1,3 +1,5 @@
+require 'ostruct'
+
 module Wineshop
   class Wine
     ECONOMY = 0
@@ -6,22 +8,18 @@ module Wineshop
     SUPER_PREMIUM = 3
     ULTRA_PREMIUM = 4
     LUXURY = 5
+    EconomyPrice = OpenStruct.new(:price => 3)
 
     attr_reader :wine_name
     attr_accessor :wine_price_code
 
-    def initialize(name, price_code = EconomyPriceCode.new)
-      @wine_name, @wine_price_code = name, price_code
+    def initialize(name, price = EconomyPrice)
+      @wine_name, @price = name, price
     end
 
     def calculate_amount
-      @wine_price_code.calculate_amount
+      @price.price
     end
   end
 
-  class EconomyPriceCode
-    def initialize
-      @price_code = 0
-    end
-  end
 end
