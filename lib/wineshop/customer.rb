@@ -1,18 +1,32 @@
 module Wineshop
-  class Purchases
-    attr_accessor :items 
-    def initialize
-      @items = []
-      @total_amount = 0
+  class CustomerPresenter
+    def initialize(customer)
+      @customer = customer
     end
 
-    def total_amount
-      @items.inject(0) { |sum, item| sum += item.determine_amount }
+    def header
+      "Statement for #{@customer.name}\n"
+    end
+
+    def footer
+      "Total Amount is #{@customer.purchases_total_amount.to_s}\nBalance Owing is #{@customer.calculate_balance}\n"
+    end
+
+    def body
+      body = ""
+      @customer.purchases_items.each do |purchase|
+        body += "\t#{purchase.item.name}\t#{purchase.determine_amount}\n"
+      end
+      body
+    end
+
+    def to_s
+      "#{header}#{body}#{footer}"
     end
   end
 
   class Customer
-    attr_reader :name
+    attr_reader :name 
     attr_reader :shipping_address
 
     def initialize(name, shipping_address)
@@ -31,38 +45,19 @@ module Wineshop
     end
 
     def statement 
-      result = header
-      @purchases.items.each do |purchase|
-
-        # show figures for this wine
-        result += item_figures(purchase) 
-
-        unless purchase.added_to_bill
-          @balance += purchase.determine_amount
-          purchase.added_to_bill = true
-        end
-      end
-
-      result += footer
-      result
+      CustomerPresenter.new(self).to_s
     end
 
-    private
-    def item_figures(purchase)
-      "\t#{purchase.item.name}\t#{purchase.determine_amount}\n"
+    def purchases_items
+      @purchases.items
+    end
+
+    def calculate_balance
+      @purchases.items.inject(0) { |balance, item| balance += item.calculate_balance }
     end
 
     def purchases_total_amount
       @purchases.total_amount
     end
-
-    def header
-      "Statement for #{@name}\n"
-    end
-
-    def footer
-      "Total Amount is #{purchases_total_amount.to_s}\nBalance Owing is #{@balance.to_s}\n"
-    end
-
   end
 end
