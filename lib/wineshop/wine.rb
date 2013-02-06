@@ -9,6 +9,7 @@ module Wineshop
     ULTRA_PREMIUM = 4
     LUXURY = 5
     EconomyPrice = OpenStruct.new(:price => 3)
+    PopularPrice = OpenStruct.new(:price => 7)
 
     attr_reader :wine_name
 

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Wineshop::Customer do 
-  let(:economy_code) { Wineshop::Wine::EconomyPrice}
-  let(:popular_code) { 1 }
+  let(:economy_code) { Wineshop::Wine::EconomyPrice }
+  let(:popular_code) { Wineshop::Wine::PopularPrice }
   let(:premium_code) { 2 }
   let(:super_premium_code) { 3 }
   let(:ultra_premium_code) { 4 }
@@ -20,7 +20,7 @@ describe Wineshop::Customer do
       it { should == "Statement for Rafael\n\tBorg\t3\nTotal Amount is 3\nBalance Owing is 3\n" }
     end
 
-    pending "When price code is popular" do 
+    context "When price code is popular" do 
       let(:popular_wine) { Wineshop::Wine.new("Borg", popular_code) }
       let(:purchase) { Wineshop::Purchase.new(popular_wine) }
       before(:each) do 
