@@ -26,20 +26,6 @@ module Wineshop
 
         # determine amounts for each wine
         this_amount += purchase.wine.calculate_amount
-        #case purchase.wine.wine_price_code
-        #when Wine::ECONOMY
-        #  this_amount += 3
-        #when Wine::POPULAR
-        #  this_amount += 7
-        #when Wine::PREMIUM
-        #  this_amount += 10
-        #when Wine::SUPER_PREMIUM
-        #  this_amount += 12
-        #when Wine::ULTRA_PREMIUM
-        #  this_amount += 14
-        #when Wine::LUXURY
-        #  this_amount += 17
-        #end
 
         # show figures for this wine
         result += "\t" + purchase.wine.wine_name + "\t" + this_amount.to_s + "\n"
