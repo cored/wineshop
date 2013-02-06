@@ -21,11 +21,11 @@ module Wineshop
     def statement 
       total_amount = 0
       result = "Statement for #{@name}\n"
-      @purchases.each do |element|
+      @purchases.each do |purchase|
         this_amount = 0
 
         # determine amounts for each wine
-        case element.wine.wine_price_code
+        case purchase.wine.wine_price_code
         when Wine::ECONOMY
           this_amount += 3
         when Wine::POPULAR
@@ -41,12 +41,12 @@ module Wineshop
         end
 
         # show figures for this wine
-        result += "\t" + element.wine.wine_name + "\t" + this_amount.to_s + "\n"
+        result += "\t" + purchase.wine.wine_name + "\t" + this_amount.to_s + "\n"
         total_amount += this_amount
 
-        unless element.added_to_bill
+        unless purchase.added_to_bill
           @balance += this_amount
-          element.added_to_bill = true
+          purchase.added_to_bill = true
         end
       end
 
