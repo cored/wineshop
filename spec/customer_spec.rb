@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe Wineshop::Customer do 
-  let(:economy_code) { Wineshop::Wine::EconomyPrice }
-  let(:popular_code) { Wineshop::Wine::PopularPrice }
-  let(:premium_code) { Wineshop::Wine::PremiumPrice }
-  let(:super_premium_code) { Wineshop::Wine::SuperPremiumPrice }
-  let(:ultra_premium_code) { Wineshop::Wine::UltraPremiumPrice }
-  let(:luxury_code) { Wineshop::Wine::LuxuryPrice }
+  let(:economy_code) { Wineshop::Prices::Economy }
+  let(:popular_code) { Wineshop::Prices::Popular }
+  let(:premium_code) { Wineshop::Prices::Premium }
+  let(:super_premium_code) { Wineshop::Prices::SuperPremium }
+  let(:ultra_premium_code) { Wineshop::Prices::UltraPremium }
+  let(:luxury_code) { Wineshop::Prices::Luxury }
   let(:customer) { Wineshop::Customer.new("Rafael", "My Place") }
   
   describe :statement do 
