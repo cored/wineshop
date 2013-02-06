@@ -10,8 +10,8 @@ describe Wineshop::Customer do
     before(:each) do 
       customer.add_purchase(purchase)
     end
-    subject { customer.customer_statement } 
-    it { should == "" }
+    subject { customer.statement } 
+    it { should == "Statement for Rafael\n\tBorg\t3\nTotal Amount is 3\nBalance Owing is 3\n" }
   end
 
 end

@@ -18,7 +18,7 @@ module Wineshop
       @balance -= arg
     end
 
-    def customer_statement
+    def statement 
       total_amount = 0
       result = "Statement for #{@name}\n"
       @purchases.each do |element|
