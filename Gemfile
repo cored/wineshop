@@ -1,4 +1,9 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in wineshop.gemspec
-gemspec
+group :development do
+  gem 'rake'
+  gem 'rspec'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rb-inotify'
+end
