@@ -3,8 +3,8 @@ require 'ostruct'
 module Wineshop
   class Wine
 
-    def initialize(name, price = Prices::Economy)
-      @name, @price = name, price
+    def initialize(attr = {})
+      @name, @price = attr[:name], attr[:price_code]
     end
 
     def calculate_amount

@@ -1,8 +1,8 @@
 module Wineshop
   class Customer
-    def initialize(name, shipping_address)
-      @name = name
-      @shipping_address = shipping_address
+    def initialize(attr = {})
+      @name = attr[:name]
+      @shipping_address = attr[:address]
       @balance = 0
       @purchases = Purchases.new
     end

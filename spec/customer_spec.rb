@@ -7,11 +7,11 @@ describe Wineshop::Customer do
   let(:super_premium_code) { Wineshop::Prices::SuperPremium }
   let(:ultra_premium_code) { Wineshop::Prices::UltraPremium }
   let(:luxury_code) { Wineshop::Prices::Luxury }
-  let(:customer) { Wineshop::Customer.new("Rafael", "My Place") }
+  let(:customer) { Wineshop::Customer.new(:name => "Rafael", :address => "My Place") }
   
   describe :statement do 
     context "When price code is economy" do 
-      let(:economy_wine) { Wineshop::Wine.new("Borg", economy_code) }
+      let(:economy_wine) { Wineshop::Wine.new(:name => "Borg", :price_code => economy_code) }
       let(:purchase) { Wineshop::Purchase.new(economy_wine) }
       before(:each) do 
         customer.add_purchase(purchase)
@@ -21,7 +21,7 @@ describe Wineshop::Customer do
     end
 
     context "When price code is popular" do 
-      let(:popular_wine) { Wineshop::Wine.new("Borg", popular_code) }
+      let(:popular_wine) { Wineshop::Wine.new(:name => "Borg", :price_code => popular_code) }
       let(:purchase) { Wineshop::Purchase.new(popular_wine) }
       before(:each) do 
         customer.add_purchase(purchase)
@@ -31,7 +31,7 @@ describe Wineshop::Customer do
     end
 
     context "When price code is premium" do 
-      let(:premium_wine) { Wineshop::Wine.new("Borg", premium_code) }
+      let(:premium_wine) { Wineshop::Wine.new(:name => "Borg", :price_code => premium_code) }
       let(:purchase) { Wineshop::Purchase.new(premium_wine) }
       before(:each) do 
         customer.add_purchase(purchase) 
@@ -41,7 +41,7 @@ describe Wineshop::Customer do
     end
 
     context "When price code is super premium" do 
-      let(:super_premium_wine) { Wineshop::Wine.new("Borg", super_premium_code) }
+      let(:super_premium_wine) { Wineshop::Wine.new(:name => "Borg", :price_code => super_premium_code) }
       let(:purchase) { Wineshop::Purchase.new(super_premium_wine) }
       before(:each) do 
         customer.add_purchase(purchase)
@@ -51,7 +51,7 @@ describe Wineshop::Customer do
     end
 
     context "When price code is ultra premium" do 
-      let(:ultra_premium_wine) { Wineshop::Wine.new("Borg", ultra_premium_code) }
+      let(:ultra_premium_wine) { Wineshop::Wine.new(:name => "Borg", :price_code => ultra_premium_code) }
       let(:purchase) { Wineshop::Purchase.new(ultra_premium_wine) }
       before(:each) do 
         customer.add_purchase(purchase)
@@ -61,7 +61,7 @@ describe Wineshop::Customer do
     end
 
     context "When price code is luxury" do 
-      let(:luxury_wine) { Wineshop::Wine.new("Borg", luxury_code) }
+      let(:luxury_wine) { Wineshop::Wine.new(:name => "Borg", :price_code => luxury_code) }
       let(:purchase) { Wineshop::Purchase.new(luxury_wine) }
       before(:each) do 
         customer.add_purchase(purchase)
