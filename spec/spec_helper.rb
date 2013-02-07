@@ -1,3 +1,6 @@
+require 'simplecov'
+
+SimpleCov.start
 require 'wineshop'
 
 RSpec.configure do |config|

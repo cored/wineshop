@@ -1,5 +1,3 @@
-require 'ostruct'
-
 module Wineshop
   class Wine
 

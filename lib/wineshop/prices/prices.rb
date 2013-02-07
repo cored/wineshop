@@ -1,3 +1,5 @@
+require 'ostruct'
+
 module Wineshop
   module Prices
     Economy = OpenStruct.new(:price => 3)
