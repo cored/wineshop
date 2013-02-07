@@ -2,9 +2,9 @@ module Wineshop
   class Purchase
     attr_reader :item
 
-    def initialize(item)
-      @item = item
-      @added_to_bill = false
+    def initialize(attr = {})
+      @item = attr[:item]
+      @added_to_bill = attr[:added_to_bill]
     end
 
     def determine_amount
