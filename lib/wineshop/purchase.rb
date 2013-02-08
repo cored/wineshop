@@ -1,10 +1,12 @@
+require 'ostruct'
 module Wineshop
   class Purchase
     attr_reader :item
 
+    NullItem = OpenStruct.new(:calculate_amount => 0)
     def initialize(attr = {})
-      @item = attr[:item]
-      @added_to_bill = attr[:added_to_bill]
+      @item = attr.fetch(:item) { NullItem }
+      @added_to_bill = attr.fetch(:added_to_bill) { false }
     end
 
     def determine_amount
